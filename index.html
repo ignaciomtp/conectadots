@@ -1,0 +1,193 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>CONECTADOTS - Un juego sobre conectar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="img/logo.png">
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        
+        <link href="css/dots.css" rel="stylesheet">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        
+        
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="inicio text-center" id="inicio">
+            <img src="img/contectadots.png" class="img-responsive centrar">
+            <div class="texto">
+               <h2>Un juego sobre conectar.</h2>
+            </div>   
+
+            <p><img src="img/clip.gif" ></p>
+            <br/>
+
+            <button class="btn btn-lg btn-jugar botonperfil" id="jugar">Jugar</button>
+                
+           
+
+        </div>
+
+	<div class="" id="tablero">
+            <div class="marcador">
+		<div class="elementoMarcador"><span id="clasePartida">Movimientos</span>
+                    <div id="mov">0</div>
+		</div>
+		<div class="elementoMarcador">Puntos
+                    <div id="ptos">0</div>
+		</div>
+				
+            </div>	
+            
+            <div class="contenedorcanvas">
+		<canvas width="300" height="300" id="recuadro"></canvas>
+                <br/>
+				
+
+            </div>		
+        </div>
+
+        <!-- Modal HTML -->
+        <div id="tipopartida" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        
+                        <h3 class="modal-title text-center">Tipo de Partida</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="botontipo">
+                                <button type="button" class="btn btn-lg btn-jugar" onclick="partidaMovimientos()"><span class="glyphicon glyphicon-move" style="font-size: 2.2em"></span><br />Movimientos</button>
+
+                        </div>
+                        <div class="botontipo">
+                                <button type="button" class="btn btn-lg btn-jugar" onclick="partidaContra()"><span class="glyphicon glyphicon-time" style="font-size: 2.2em"></span><br />Contrarreloj</button>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+<!-- Modal HTML -->
+<div id="gameover" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               
+                <h2 class="modal-title text-center">Game Over</h2>
+            </div>
+            <div class="modal-body">
+
+                <span id="puntuacion"></span>
+
+                <div id="datosPartida" >
+                    <div id="formu" style="display: none">
+                        <form id="formularioPartida" name="fpartida" action="controles/guardarPartida.php" method="post">	
+
+                               <input type="text" name="fecha">
+                               <input type="text" name="puntaje">
+                               <input type="text" name="tipo">
+                               <input type="text" name="eliminator">
+                               <input type="text" name="relojes">
+                               <input type="text" name="barredores">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button type="button" class="btn btn-lg btn-jugar" onclick="otravez()">Jugar otra vez</button>
+                    <button type="button" class="btn btn-lg btn-jugar" onclick="ini()">Salir</button>
+               	</center>
+               
+            </div>
+        </div>
+    </div>
+</div>		
+
+<!-- Modal HTML -->
+<div id="topscores" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               
+                <h2 class="modal-title text-center">Mejores Partidas <span id="tipop"></span></h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped" id="records">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Puntos</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button type="button" class="btn btn-lg btn-jugar" onclick="guardar()" id="btnGuardar">Guardar</button>
+                    <button type="button" class="btn btn-lg btn-jugar" onclick="otravez()">Jugar otra vez</button>
+                    <button type="button" class="btn btn-lg btn-jugar" onclick="ini()">Salir</button>
+               	</center>
+               
+            </div>
+        </div>
+    </div>
+</div>		
+
+
+        <script src="js/vendor/jquery-1.11.2.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/dots2.js"></script>
+	<script src="js/site.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-modalmanager.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".mitooltip").tooltip();
+            });
+        </script>
+
+        <script>
+            window.onload = function(){
+
+                startup();
+                $('#jugar').on("click", iniciarPartida);
+
+            };
+            
+
+        </script>		
+
+    </body>
+</html>
