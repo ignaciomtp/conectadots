@@ -18,6 +18,7 @@
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
+                background-color: #444F52 !important;
             }
         </style>
         
@@ -45,21 +46,22 @@
 
         </div>
 
-	<div class="" id="tablero">
+	    <div class="" id="tablero">
             <div class="marcador">
-		<div class="elementoMarcador"><span id="clasePartida">Movimientos</span>
-                    <div id="mov">0</div>
-		</div>
-		<div class="elementoMarcador">Puntos
-                    <div id="ptos">0</div>
-		</div>
+        		<div class="elementoMarcador"><span id="clasePartida">Movimientos</span>
+                            <div id="mov">0</div>
+        		</div>
+        		<div class="elementoMarcador">Puntos
+                            <div id="ptos">0</div>
+        		</div>
 				
             </div>	
             
-            <div class="contenedorcanvas">
-		<canvas width="300" height="300" id="recuadro"></canvas>
-                <br/>
-				
+            <div class="contenedorcanvas text-center">
+		      <canvas width="300" height="300" id="recuadro"></canvas>
+              <br/>
+			
+                <button class="btn btn-lg btn-jugar botonperfil" id="btn-inicio">Inicio</button>
 
             </div>		
         </div>
@@ -184,8 +186,12 @@
                 startup();
                 $('#jugar').on("click", iniciarPartida);
 
+                $('#btn-inicio').on("click", recargar);
             };
             
+            function recargar(){
+                location.reload(true);
+            }
 
         </script>		
 

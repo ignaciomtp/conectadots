@@ -1,4 +1,5 @@
 
+
 .contenedorcanvas{
 	position: relative;	
 	width:302px;
@@ -6,13 +7,13 @@
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:0px;
-	background-color:#FFFFFF;
+	background-color:#FFF;
 	border:1px solid black;	
 	
 }
 
 canvas{
-	background-color: #FFFFFF;
+	background-color: #FFF;
 	
 	
 }
@@ -436,7 +437,11 @@ canvas{
     background-color: #FFF;
     font-size: 120%;
     font-weight: bold;
-    color: #444F52;
+    color: #282F31;
+}
+
+#btn-inicio{
+	margin-top: 30px;
 }
 
 #topscores .modal-content{
@@ -449,18 +454,19 @@ canvas{
 }
 
 #topscores thead{
-    background-color: #444F52;
+    background-color: #282F31;
     color: #FFF;
 }
 
 .btn-jugar{
-    background-color: #444F52;
+    background-color: #282F31;
     border-color: #0D1B1F;
     color: #EEE;
 }
 
 .btn-jugar:hover{
-    color:#0D1B1F;
+    color:#000;
+    background-color: #EEE;
 }
 
 #puntuacion{
