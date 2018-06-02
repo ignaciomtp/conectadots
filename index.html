@@ -193,6 +193,37 @@
                 location.reload(true);
             }
 
+
+            function comprobarMovimientos(){
+                if(movimientos == 0)
+                {
+
+                    $('#gameover').modal('show');
+                    
+                    $('#puntuacion').html("<center><h1>" + puntoNumero + "</h1><h3>PUNTOS</h3></center>");
+
+
+                }
+            }
+
+
+            function crono()
+            {
+                tiempo--;
+                actualizarMarcadores2();
+
+                if(tiempo == 0)
+                {
+                    clearInterval(control);
+                    $('#gameover').modal('show');
+
+                    document.getElementById("puntuacion").innerHTML = "<center><h1>" + puntoNumero + "</h1><h3>PUNTOS</h3></center>";
+                }
+                
+            }
+
+
+
         </script>		
 
     </body>
